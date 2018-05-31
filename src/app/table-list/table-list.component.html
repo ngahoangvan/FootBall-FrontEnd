@@ -12,47 +12,26 @@
         <div class="card">
           <div class="card-header bg-secondary mb-3">
             <h4 class="card-title text-white">Pham Nhu Xuong Stadium</h4>
-            <p class="card-category">###</p>
+            <p class="card-category">18 Pham Nhu Xuong - Lien Chieu</p>
           </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table">
                 <thead class=" text-primary">
-                  <th>
-                    ID
-                  </th>
-                  <th>
-                    Customer Name
-                  </th>
-                  <th>
-                    Phone Number
-                  </th>
-                  <th>
-                    Start
-                  </th>
-                  <th>
-                    End
-                  </th>
+                  <th>ID</th>
+                  <th>Customer Name</th>
+                  <th>Phone Number</th>
+                  <th>Start</th>
+                  <th>End</th>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>
-                      1
-                    </td>
-                    <td>
-                      Do Sy Duy
-                    </td>
-                    <td>
-                      +84 16 9298 766
-                    </td>
-                    <td>
-                      3PM
-                    </td>
-                    <td class="text-primary">
-                      6PM
-                    </td>
+                  <tr *ngFor="let customerinprogress of customerinprogress">
+                    <td>{{customerinprogress.id}}</td>
+                    <td>{{customerinprogress.name}}</td>
+                    <td>{{customerinprogress.phonenumber}}</td>
+                    <td>{{customerinprogress.starttime}}</td>
+                    <td>{{customerinprogress.endtime}}</td>
                   </tr>
-                  
                 </tbody>
               </table>
             </div>
@@ -63,7 +42,7 @@
         <div class="card card-plain">
           <div class="card-header bg-secondary mb-3">
             <h4 class="card-title mt-0 text-white">Hoang Dieu Stadium</h4>
-            <p class="card-category">###</p>
+            <p class="card-category">115 Hoang Dieu - Hai Chau</p>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -197,10 +176,4 @@
       </div>
     </div>
   </div>
-
-
-
-
-
-
 </div>

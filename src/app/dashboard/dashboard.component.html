@@ -8,7 +8,7 @@
               <i class="material-icons">trending_up</i>
             </div>
             <p class="card-category">This Month</p>
-            <h3 class="card-title">89/100
+            <h3 class="card-title">89
             <small>%</small>
             </h3>
           </div>
@@ -27,7 +27,7 @@
               <i class="material-icons">attach_money</i>
             </div>
             <p class="card-category">Subtotal</p>
-            <h3 class="card-title">29,120,20vnd</h3>
+            <h3 class="card-title">9,120,20vnd</h3>
           </div>
           <div class="card-footer">
             <div class="stats">
@@ -56,7 +56,7 @@
         <div class="card card-stats">
           <div class="card-header card-header-info card-header-icon">
             <div class="card-icon">
-               <i class="material-icons">search</i>
+              <i class="material-icons">search</i>
             </div>
             <p class="card-category">Search</p>
             <h3 class="card-title"></h3>
@@ -104,62 +104,32 @@
             <div class="tab-content">
               <div class="tab-pane active" id="profile">
 
-                <table class="table">
-                  <tr *ngFor= "let water of water" routerLinkActive="active">
-                    <td>
-                      <div class="form-check">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox" value="" checked>
-                          <span class="form-check-sign">
-                            <span class="check"></span>
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                    <td>
-                  <mat-form-field class="example-full-width">
-                    <span matPrefix>{{water.name}} &nbsp; &nbsp; &nbsp;</span>
-                    <input id="#" type="tel" matInput>
-                    <mat-icon matSuffix>mode_edit</mat-icon>
-                  </mat-form-field>
-                </td>
-                </table>
+                   <table class="table table-hover">
+                      <thead class="text-warning">
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Cost (vnd)</th>
 
-              <div class="col-md-4">
-                 <button mat-raised-button class="btn btn-danger btn-block" (click)="showNotification('bottom','center')">Change Save</button>
-              </div>
-
-              </div>
-              <div class="tab-pane" id="messages">
+                      </thead>
+                      <tbody>
+                        <tr *ngFor = "let water of water">
+                          <td>{{water.id}}</td>
+                          <td>{{water.name}}</td>
+                          <td>{{water.price}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
 
 
-                <table class="table">
-                  <tr *ngFor= "let food of food" routerLinkActive="active">
-                    <td>
-                      <div class="form-check">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox" value="" checked>
-                          <span class="form-check-sign">
-                            <span class="check"></span>
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                    <td>
-                  <mat-form-field class="example-full-width">
-                    <span matPrefix>{{food.name}} &nbsp; &nbsp; &nbsp;</span>
-                    <input id="#" type="tel" matInput>
-                    <mat-icon matSuffix>mode_edit</mat-icon>
-                  </mat-form-field>
-                </td>
-                </table>
+                  <div class="col-md-4">
+                    <button mat-raised-button class="btn btn-danger btn-block" (click)="showNotification('bottom','center')">View More</button>
+                  </div>
+                </div>
+                
+                <div class="tab-pane" id="messages">
 
-              <div class="col-md-4">
-                 <button mat-raised-button class="btn btn-danger btn-block" (click)="showNotification('bottom','center')">Change Save</button>
-              </div>
-<!--                 <table class="table">
-                  <tbody>
 
+                 <!--  <table class="table">
                     <tr *ngFor= "let food of food" routerLinkActive="active">
                       <td>
                         <div class="form-check">
@@ -171,67 +141,117 @@
                           </label>
                         </div>
                       </td>
-                      <td>{{food.name}}</td>
-                      <td style="float: right;" class="td-actions text-right">
-                        <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
-                        <i class="material-icons">edit</i>
-                        </button>
-                        <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
-                        <i class="material-icons">close</i>
-                        </button>
+                      <td>
+                        <mat-form-field class="example-full-width">
+                        <span matPrefix>{{food.name}} &nbsp; &nbsp; &nbsp;</span>
+                        <input id="#" type="tel" matInput>
+                        <mat-icon matSuffix>mode_edit</mat-icon>
+                        </mat-form-field>
                       </td>
-                    </tr>
-                    
-                  </tbody>
-                </table> -->
+                    </table>
+ -->
+
+                    <table class="table table-hover">
+                      <thead class="text-warning">
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Cost (vnd)</th>
+
+                      </thead>
+                      <tbody>
+                        <tr *ngFor = "let food of food">
+                          <td>{{food.id}}</td>
+                          <td>{{food.name}}</td>
+                          <td>{{food.price}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <div class="col-md-4">
+                      <button mat-raised-button class="btn btn-danger btn-block" (click)="showNotification('bottom','center')">View More</button>
+                    </div>
+                    <!--                 <table class="table">
+                      <tbody>
+                        <tr *ngFor= "let food of food" routerLinkActive="active">
+                          <td>
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" value="" checked>
+                                <span class="form-check-sign">
+                                  <span class="check"></span>
+                                </span>
+                              </label>
+                            </div>
+                          </td>
+                          <td>{{food.name}}</td>
+                          <td style="float: right;" class="td-actions text-right">
+                            <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                            <i class="material-icons">edit</i>
+                            </button>
+                            <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                            <i class="material-icons">close</i>
+                            </button>
+                          </td>
+                        </tr>
+                        
+                      </tbody>
+                    </table> -->
+                  </div>
+                  <div class="tab-pane" id="settings">
+                    <table class="table">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <span class="form-check-sign">
+                                  <span class="check"></span>
+                                </span>
+                              </label>
+                            </div>
+                          </td>
+                          <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                          <td class="td-actions text-right">
+                            <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                            <i class="material-icons">edit</i>
+                            </button>
+                            <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                            <i class="material-icons">close</i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
-              <div class="tab-pane" id="settings">
-                <table class="table">
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <div class="card">
+              <div class="card-header card-header-info">
+                <h4 class="card-title">Customer paid status</h4>
+                <p class="card-category">1 day ago</p>
+              </div>
+              <div class="card-body table-responsive">
+                <table class="table table-hover">
+                  <thead class="text-warning">
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Cost (vnd)</th>
+                    <th>Phone Number</th>
+                  </thead>
                   <tbody>
-                    <tr>
-                      <td>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <span class="form-check-sign">
-                              <span class="check"></span>
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                      <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                      <td class="td-actions text-right">
-                        <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
-                        <i class="material-icons">edit</i>
-                        </button>
-                        <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
-                        <i class="material-icons">close</i>
-                        </button>
-                      </td>
+                    <tr *ngFor = "let customers of customer">
+                      <td>{{customers.id}}</td>
+                      <td>{{customers.name}}</td>
+                      <td>{{customers.cost}}</td>
+                      <td>{{customers.phonenumber}}</td>
                     </tr>
-                    <tr>
-                      <td>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="" checked>
-                            <span class="form-check-sign">
-                              <span class="check"></span>
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                      <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                      </td>
-                      <td class="td-actions text-right">
-                        <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
-                        <i class="material-icons">edit</i>
-                        </button>
-                        <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
-                        <i class="material-icons">close</i>
-                        </button>
-                      </td>
-                    </tr>
-                    
                   </tbody>
                 </table>
               </div>
@@ -239,50 +259,4 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-6 col-md-12">
-        <div class="card">
-          <div class="card-header card-header-info">
-            <h4 class="card-title">Customer paid status</h4>
-            <p class="card-category">1 day ago</p>
-          </div>
-          <div class="card-body table-responsive">
-            <table class="table table-hover">
-              <thead class="text-warning">
-                <th>ID</th>
-                <th>Name</th>
-                <th>Cost (vnd)</th>
-                <th>Phone Number</th>
-              </thead>
-              <tbody>
-                <tr *ngFor = "let customers of customer">
-                  <td>{{customers.id}}</td>
-                  <td>{{customers.name}}</td>
-                  <td>{{customers.cost}}</td>
-                  <td>{{customers.phonenumber}}</td>
-                </tr>
-               <!--  <tr>
-                  <td>2</td>
-                  <td>Do Sy Duy</td>
-                  <td>120.000</td>
-                  <td>0167 98623 234</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Hoang Van Nga</td>
-                  <td>190.000</td>
-                  <td>0163 33133 776</td>  
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>Duong Thanh Anh</td>
-                  <td>200.000</td>
-                  <td>0169 45556 784</td>
-                </tr> -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-</div>
