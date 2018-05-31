@@ -5,6 +5,8 @@ import { Router } from "@angular/router";
 
 import { ROUTECUSTOMER } from '../table-list/assets'
 
+import { ROUTESTADIUM } from '../table-list/stadium-name-data'
+
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 
 declare var $:any;
@@ -34,6 +36,7 @@ export class DashboardComponent implements OnInit {
      this.water = ROUTES.filter(water => water);
      this.food = FOOD.filter(food => food);
      this.customer = ROUTECUSTOMER.filter(customer => customer);
+     
   }
 
 

@@ -10,9 +10,10 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card">
-          <div class="card-header bg-secondary mb-3">
-            <h4 class="card-title text-white">Pham Nhu Xuong Stadium</h4>
-            <p class="card-category">18 Pham Nhu Xuong - Lien Chieu</p>
+
+          <div class="card-header bg-secondary mb-3" *ngFor = "let stadium_name of stadium_name">
+            <h4 class="card-title text-white">{{stadium_name.name}}</h4>
+            <p class="card-category">{{stadium_name.address}}</p>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -30,7 +31,7 @@
                     <td>{{customerinprogress.name}}</td>
                     <td>{{customerinprogress.phonenumber}}</td>
                     <td>{{customerinprogress.starttime}}</td>
-                    <td>{{customerinprogress.endtime}}</td>
+                    <td class="text-primary">{{customerinprogress.endtime}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -60,7 +61,7 @@
                   <th>
                     Start
                   </th>
-                  <th>
+                  <th class="text-primary">
                     End
                   </th>
                 </thead>
@@ -128,7 +129,7 @@
                   <th>
                     Start
                   </th>
-                  <th>
+                  <th class="text-primary">
                     End
                   </th>
                 </thead>

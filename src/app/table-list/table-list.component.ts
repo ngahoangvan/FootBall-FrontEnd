@@ -11,6 +11,8 @@ import { ROUTECUSTOMER } from './assets'
 
 import { ROUTEINPROGRESS } from './inprogress'
 
+import { ROUTESTADIUM } from './stadium-name-data'
+
 
 @Component({
   selector: 'app-table-list',
@@ -30,11 +32,13 @@ export class TableListComponent implements OnInit {
 
   customer: any[];
   customerinprogress: any[];
+  stadium_name: any[];
 
   ngOnInit() {
 
      this.customer = ROUTECUSTOMER.filter(customer => customer);
      this.customerinprogress = ROUTEINPROGRESS.filter(customerinprogress => customerinprogress)
+     this.stadium_name = ROUTESTADIUM.filter(stadium_name => stadium_name)
   }
 
 }

@@ -3,4 +3,5 @@ export interface RouteInfo {
     name: string;
     cost: number;
     phonenumber: string;
+    date: string;
 }
