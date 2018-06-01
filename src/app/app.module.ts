@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
+import {DialogDataExampleDialog} from './dashboard/dashboard.component'
+
+
 
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -23,6 +26,8 @@ import {
   MatExpansionModule,
   MatGridListModule,
   MatIconModule,
+
+
 
   MatListModule,
   MatMenuModule,
@@ -62,6 +67,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import {
   AgmCoreModule
 } from '@agm/core';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   imports: [
@@ -81,6 +87,10 @@ import {
     MatNativeDateModule,
 
     MatIconModule,
+    MatMenuModule,
+
+    MatDialogModule,
+    
 
     
     MatSidenavModule,
@@ -97,12 +107,15 @@ import {
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     })
   ],
+  entryComponents: [DialogDataExampleDialog],
   declarations: [
     AppComponent,
     DashboardComponent,
     TableListComponent,
     MapsComponent,
     NotificationsComponent,
+    FormComponent,
+    DialogDataExampleDialog
 
   ],
   providers: [],
