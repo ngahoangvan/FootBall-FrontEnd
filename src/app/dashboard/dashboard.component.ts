@@ -103,6 +103,18 @@ export class DashboardComponent implements OnInit {
     this._drinkService.setterDrink(drink);
   }
 
+  deleteFood(food){
+    this._foodService.deleteFood(food.idFood).subscribe((data)=>{
+      this.food.splice(this.food.indexOf(food),1);
+    }, (error) =>{
+      console.log(error)
+    })
+  }
+
+  updateFood(food){
+    // 
+  }
+
 
   showNotification(from, align){
       const type = ['','info','success','warning','danger'];

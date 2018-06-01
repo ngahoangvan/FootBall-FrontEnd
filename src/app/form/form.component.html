@@ -39,8 +39,7 @@
 					<label for="inputCity">Date</label>
 					<input type="date" class="form-control" id="inputCity">
 				</div>
-			</div>
-			
+			</div>	
 			<button type="button" style="width: 30%" class="btn btn-primary btn-lg btn-block">Finished Order</button>
 		</form>
 
@@ -56,7 +55,7 @@
 		
 		<div class="row">
 			<div class="col-lg-3 col-md-6 col-sm-6">
-				<form>
+				<form (ngSubmit) = "addDrinkForm()">
 					<div class="card card-stats">
 						<div class="card-header card-header-warning card-header-icon">
 							<div class="card-icon">
@@ -69,23 +68,23 @@
 					</div>
 					<div class="form-row">
 						<div class="form-group col-md-6">
-							<input type="text" class="form-control" id="#" placeholder="Name">
+							<input type="text" class="form-control" id="#" placeholder="Name" required [(ngModel)]="water.name" name="name">
 						</div>
 						<div class="form-group col-md-6">
-							<input type="text" class="form-control" id="#" placeholder="Price">
+							<input type="text" class="form-control" id="#" placeholder="Price" required [(ngModel)]="water.price" name="price" >
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label for="inputAddress2">Description</label>
-						<input type="text" class="form-control" id="#" placeholder="Gas, Fruit, or sth'">
+						<input type="text" class="form-control" id="#" placeholder="Gas, Fruit, or sth'" required [(ngModel)]="water.someThing" name="description">
 					</div>
 					
-					<button type="submit" class="btn btn-primary">Add</button>
+					<button type="submit" (click) = "newDrink()"  class="btn btn-primary">Add</button>
 				</form>
 			</div>
 			<div class="col-lg-3 col-md-6 col-sm-6">
-				<form>
+				<form (ngSubmit) = "addFoodForm()">
 					<div class="card card-stats">
 						<div class="card-header card-header-success card-header-icon">
 							<div class="card-icon">
@@ -98,19 +97,19 @@
 					</div>
 					<div class="form-row">
 						<div class="form-group col-md-6">
-							<input type="text" class="form-control" id="#" placeholder="Name">
+							<input type="text" class="form-control" id="#" placeholder="Name" required [(ngModel)]="food.name" name="name">
 						</div>
 						<div class="form-group col-md-6">
-							<input type="text" class="form-control" id="#" placeholder="Price">
+							<input type="text" class="form-control" id="#" placeholder="Price" required [(ngModel)]="food.price" name="price">
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label for="inputAddress2">Description</label>
-						<input type="text" class="form-control" id="#" placeholder="Cookie, Snack, or sth'">
+						<input type="text" class="form-control" id="#" placeholder="Cookie, Snack, or sth'" required [(ngModel)]="food.someThing" name="description">
 					</div>
 					
-					<button type="submit" class="btn btn-primary">Add</button>
+					<button type="submit" (click) = "newFood()" class="btn btn-primary">Add</button>
 				</form>
 			</div>
 		</div>

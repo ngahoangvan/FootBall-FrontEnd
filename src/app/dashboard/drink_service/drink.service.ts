@@ -39,12 +39,14 @@ export class DrinkService {
     return this._http.delete(this.baseUrl + '/delete/'+idDrink,this.options).map(this.extractData).catch(this.errorHandler);
   }
 
-  UpdateDrink(drink:any){
+  updateDrink(drink:any){
     return this._http.put(this.baseUrl + '/update',JSON.stringify(drink)).map(this.extractData).catch(this.errorHandler);
   }
 
-  CreateDrink(drink:any){
-    return this._http.post(this.baseUrl + '/new',JSON.stringify(drink)).map(this.extractData).catch(this.errorHandler);
+  createDrink(drink:any){
+    // return this._http.post(this.baseUrl + '/new',JSON.stringify(drink),this.options).map(response:Response).catch(this.errorHandler);
+    return this._http.post(this.baseUrl+'/new',JSON.stringify(drink),this.options).map(this.extractData)
+    .catch(this.errorHandler);
   }
 
   

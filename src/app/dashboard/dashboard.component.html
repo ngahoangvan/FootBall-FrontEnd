@@ -145,23 +145,15 @@
                         <td>{{food.name}}</td>
                         <td>{{food.price}}</td>
                         <td>
-
-
-<!--           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button> -->
-
-
-                   <!--      <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon" data-toggle="modal" data-target="#exampleModal"  >
-                        <i class="material-icons">edit</i>
-                        </button> -->
-
-                        <button mat-button (click)="openDialog()">Open dialog</button>
-
-                      </td>
-                      <td>
-                        <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
-                        <i class="material-icons">close</i>
-                        </button>
-                      </td>
+                          <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon" data-toggle="modal" data-target="#exampleModal"  >
+                          <i class="material-icons">edit</i>
+                          </button>
+                        </td>
+                        <td>
+                          <button mat-raised-button type="button" (click)="deleteFood(food)" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                          <i class="material-icons">close</i>
+                          </button>
+                        </td>
                       </tr>
                     </tbody>
                   </table>
