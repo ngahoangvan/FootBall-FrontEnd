@@ -9,6 +9,8 @@ import {MatPaginator, MatTableDataSource} from '@angular/material';
 import { Router } from "@angular/router";
 import { ROUTECUSTOMER } from './assets'
 
+import {StadiumService} from './stadium-service/stadium-service.service'
+
 import { ROUTEINPROGRESS } from './inprogress'
 
 import { ROUTESTADIUM } from './stadium-name-data'
@@ -28,17 +30,28 @@ export class TableListComponent implements OnInit {
   date = new FormControl(new Date());
   serializedDate = new FormControl((new Date()).toISOString());
 
-  constructor() { }
-
   customer: any[];
   customerinprogress: any[];
   stadium_name: any[];
 
+  constructor(private _stadiumService:StadiumService) { }
+
+ 
+
   ngOnInit() {
 
-     this.customer = ROUTECUSTOMER.filter(customer => customer);
-     this.customerinprogress = ROUTEINPROGRESS.filter(customerinprogress => customerinprogress)
-     this.stadium_name = ROUTESTADIUM.filter(stadium_name => stadium_name)
+    //  this.customer = ROUTECUSTOMER.filter(customer => customer);
+    //  this.customerinprogress = ROUTEINPROGRESS.filter(customerinprogress => customerinprogress)
+    //  this.stadium_name = ROUTESTADIUM.filter(stadium_name => stadium_name)
+
+    this._stadiumService.getStadium().subscribe((stadium)=>{
+      console.log(stadium);
+      this.stadium_name = stadium;
+    },(error)=>{
+      console.log(error)
+    })
+
+
   }
 
 }

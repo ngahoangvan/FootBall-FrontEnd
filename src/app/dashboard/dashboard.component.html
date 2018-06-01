@@ -111,7 +111,7 @@
                   </thead>
                   <tbody>
                     <tr *ngFor = "let water of water">
-                      <td>{{water.id}}</td>
+                      <td>{{water.idDrink}}</td>
                       <td>{{water.name}}</td>
                       <td>{{water.price}}</td>
                       <td>
@@ -120,7 +120,7 @@
                         </button>
                       </td>
                       <td>
-                        <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                        <button mat-raised-button type="button" (click)="deleteDrink(water)" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
                         <i class="material-icons">close</i>
                         </button>
                       </td>
@@ -162,7 +162,7 @@
                     </thead>
                     <tbody>
                       <tr *ngFor = "let food of food">
-                        <td>{{food.id}}</td>
+                        <td>{{food.idFood}}</td>
                         <td>{{food.name}}</td>
                         <td>{{food.price}}</td>
                         <td>
@@ -235,11 +235,11 @@
                 </thead>
                 <tbody>
                   <tr *ngFor = "let customers of customer">
-                    <td>{{customers.id}}</td>
+                    <td>{{customers.idCustomerPaid}}</td>
                     <td>{{customers.name}}</td>
                     <td>{{customers.cost}}</td>
-                    <td>{{customers.phonenumber}}</td>
-                    <td>{{customers.date}}</td>
+                    <td>{{customers.phoneNumber}}</td>
+                    <td>{{customers.someThing}}</td>
                   </tr>
                 </tbody>
               </table>

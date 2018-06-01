@@ -7,6 +7,13 @@ import { ROUTECUSTOMER } from '../table-list/assets'
 
 import { ROUTESTADIUM } from '../table-list/stadium-name-data'
 
+import {FoodService} from '../dashboard/food_service/food.service'
+import {DrinkService} from '../dashboard/drink_service/drink.service'
+import {CustomerService} from '../dashboard/customer-service/customer.service'
+
+import {Drink} from './assets/drink'
+
+
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 
 declare var $:any;
@@ -30,13 +37,39 @@ export class DashboardComponent implements OnInit {
   food: any[];
   customer: any[];
 
-  constructor() { }
+  constructor(private _foodService:FoodService, private _drinkService:DrinkService,
+    private _customerService:CustomerService) { }
   
   ngOnInit(){
-     this.water = ROUTES.filter(water => water);
-     this.food = FOOD.filter(food => food);
-     this.customer = ROUTECUSTOMER.filter(customer => customer);
-     
+    this._foodService.getFood().subscribe((food)=>{
+      console.log(food);
+      this.food = food;
+    },(error)=>{
+      console.log(error)
+    })
+
+    this._drinkService.getDrink().subscribe((water)=>{
+      console.log(water);
+      this.water = water;
+    },(error)=>{
+      console.log(error)
+    })
+
+    this._customerService.getCustomerPaid().subscribe((customer)=>{
+      console.log(customer);
+      this.customer = customer;
+    },(error)=>{
+      console.log(error)
+    })
+
+  }
+
+  deleteDrink(drink){
+    this._drinkService.deleteDrink(drink.idDrink).subscribe((data)=>{
+      this.water.splice(this.water.indexOf(drink),1);
+    },(error)=>{
+      console.log(error)
+    })
   }
 
 
@@ -71,10 +104,4 @@ export class DashboardComponent implements OnInit {
 
 }
 
-export interface Element {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
 

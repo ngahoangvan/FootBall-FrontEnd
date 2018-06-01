@@ -8,6 +8,11 @@ import { RouterModule } from '@angular/router';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {ReactiveFormsModule} from '@angular/forms';
 
+import{FoodService} from './dashboard/food_service/food.service'
+import{DrinkService} from './dashboard/drink_service/drink.service'
+import{CustomerService} from './dashboard/customer-service/customer.service'
+import{StadiumService} from './table-list/stadium-service/stadium-service.service'
+
 import {
   MatAutocompleteModule,
 
@@ -105,7 +110,7 @@ import {
     NotificationsComponent,
 
   ],
-  providers: [],
+  providers: [FoodService, DrinkService, CustomerService,StadiumService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
