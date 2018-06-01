@@ -3,6 +3,9 @@ import { ROUTES } from './assets'
 import { FOOD } from './foodslist'
 import { Router } from "@angular/router";
 
+import {Inject} from '@angular/core';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material';
+
 import { ROUTECUSTOMER } from '../table-list/assets'
 
 import { ROUTESTADIUM } from '../table-list/stadium-name-data'
@@ -36,6 +39,7 @@ export class DashboardComponent implements OnInit {
   water: any[];
   food: any[];
   customer: any[];
+<<<<<<< HEAD
 
   constructor(private _foodService:FoodService, private _drinkService:DrinkService,
     private _customerService:CustomerService) { }
@@ -70,6 +74,14 @@ export class DashboardComponent implements OnInit {
     },(error)=>{
       console.log(error)
     })
+=======
+  
+  ngOnInit(){
+     this.water = ROUTES.filter(water => water);
+     this.food = FOOD.filter(food => food);
+     this.customer = ROUTECUSTOMER.filter(customer => customer);
+     $.getScript('../../../assets/js/modal.js'); 
+>>>>>>> 7d99f14c09259190859b832c461a63444d6c0a77
   }
 
 
@@ -102,6 +114,47 @@ export class DashboardComponent implements OnInit {
       });
   }
 
+
+  constructor(public dialog: MatDialog) {}
+
+  openDialog() {
+    this.dialog.open(DialogDataExampleDialog, {
+      data: {
+        animal: 'panda'
+      }
+    });
+  }
+
 }
 
+
+@Component({
+  selector: 'dialog-data-example-dialog',
+  templateUrl: 'dialog-data-example-dialog.html',
+})
+export class DialogDataExampleDialog {
+
+    food: any[];
+
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
+
+    ngOnInit(){
+  
+     this.food = FOOD.filter(food => food);
+     $.getScript('../../../assets/js/modal.js'); 
+  }
+}
+
+<<<<<<< HEAD
+=======
+
+
+export interface Element {
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
+}
+>>>>>>> 7d99f14c09259190859b832c461a63444d6c0a77
 
