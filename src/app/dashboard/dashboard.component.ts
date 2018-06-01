@@ -39,49 +39,12 @@ export class DashboardComponent implements OnInit {
   water: any[];
   food: any[];
   customer: any[];
-<<<<<<< HEAD
-
-  constructor(private _foodService:FoodService, private _drinkService:DrinkService,
-    private _customerService:CustomerService) { }
-  
-  ngOnInit(){
-    this._foodService.getFood().subscribe((food)=>{
-      console.log(food);
-      this.food = food;
-    },(error)=>{
-      console.log(error)
-    })
-
-    this._drinkService.getDrink().subscribe((water)=>{
-      console.log(water);
-      this.water = water;
-    },(error)=>{
-      console.log(error)
-    })
-
-    this._customerService.getCustomerPaid().subscribe((customer)=>{
-      console.log(customer);
-      this.customer = customer;
-    },(error)=>{
-      console.log(error)
-    })
-
-  }
-
-  deleteDrink(drink){
-    this._drinkService.deleteDrink(drink.idDrink).subscribe((data)=>{
-      this.water.splice(this.water.indexOf(drink),1);
-    },(error)=>{
-      console.log(error)
-    })
-=======
   
   ngOnInit(){
      this.water = ROUTES.filter(water => water);
      this.food = FOOD.filter(food => food);
      this.customer = ROUTECUSTOMER.filter(customer => customer);
      $.getScript('../../../assets/js/modal.js'); 
->>>>>>> 7d99f14c09259190859b832c461a63444d6c0a77
   }
 
 
@@ -146,15 +109,4 @@ export class DialogDataExampleDialog {
   }
 }
 
-<<<<<<< HEAD
-=======
-
-
-export interface Element {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
->>>>>>> 7d99f14c09259190859b832c461a63444d6c0a77
 
