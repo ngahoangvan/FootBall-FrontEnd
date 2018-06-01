@@ -29,6 +29,12 @@ export class DrinkService {
     .catch(this.errorHandler);
   }
 
+  getCount(){
+    return this._http.get(this.baseUrl + '/count', this.options).map((response:Response)=>response.json())
+    .catch(this.errorHandler);
+  }
+
+
   deleteDrink(idDrink:Number){
     return this._http.delete(this.baseUrl + '/delete/'+idDrink,this.options).map(this.extractData).catch(this.errorHandler);
   }

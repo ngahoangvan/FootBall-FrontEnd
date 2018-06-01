@@ -33,6 +33,13 @@
 					<input type="text" class="form-control" id="inputZip">
 				</div>
 			</div>
+
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="inputCity">Date</label>
+					<input type="date" class="form-control" id="inputCity">
+				</div>
+			</div>
 			
 			<button type="button" style="width: 30%" class="btn btn-primary btn-lg btn-block">Finished Order</button>
 		</form>
@@ -56,7 +63,7 @@
 								<i class="material-icons">local_drink</i>
 							</div>
 							<p class="card-category">Waters Counter</p>
-							<h3 class="card-title">14
+							<h3 class="card-title">{{countDrink}}
 							</h3>
 						</div>
 					</div>
@@ -85,7 +92,7 @@
 								<i class="material-icons">fastfood</i>
 							</div>
 							<p class="card-category">Foods Counter</p>
-							<h3 class="card-title">19
+							<h3 class="card-title">{{countFood}}
 							</h3>
 						</div>
 					</div>

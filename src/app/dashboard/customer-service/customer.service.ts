@@ -22,6 +22,16 @@ export class CustomerService {
     .catch(this.errorHandler);
   }
 
+  getSumPrice(){
+    return this._http.get(this.baseUrl + '/sum', this.options).map((response:Response)=>response.json())
+    .catch(this.errorHandler);
+  }
+
+  getCount(){
+    return this._http.get('http://localhost:8080/api/order/count', this.options).map((response:Response)=>response.json())
+    .catch(this.errorHandler);
+  }
+
   errorHandler(error:Response){
     
     return Observable.throw(error||"SERVER ERROR")

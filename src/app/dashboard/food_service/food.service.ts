@@ -22,6 +22,11 @@ export class FoodService {
     .catch(this.errorHandler);
   }
 
+  getCount(){
+    return this._http.get(this.baseUrl + '/count', this.options).map((response:Response)=>response.json())
+    .catch(this.errorHandler);
+  }
+
   errorHandler(error:Response){
     
     return Observable.throw(error||"SERVER ERROR")

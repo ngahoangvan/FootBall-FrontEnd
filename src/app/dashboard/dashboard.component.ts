@@ -37,6 +37,11 @@ export class DashboardComponent implements OnInit {
   food: any[];
   customer: any[];
 
+  countDrink:String;
+  countFood:String;
+  coutCustomer:String;
+  sumPrice:String;
+
   constructor(public dialog: MatDialog,private _foodService:FoodService, private _drinkService:DrinkService,
     private _customerService:CustomerService) {}
   
@@ -52,7 +57,7 @@ export class DashboardComponent implements OnInit {
        console.log(error)
      })
 
-     this._drinkService.getDrink().subscribe((water)=>{
+    this._drinkService.getDrink().subscribe((water)=>{
       console.log(water);
       this.water = water;
     },(error)=>{
@@ -62,6 +67,25 @@ export class DashboardComponent implements OnInit {
     this._customerService.getCustomerPaid().subscribe((customer)=>{
       console.log(customer);
       this.customer = customer;
+    },(error)=>{
+      console.log(error)
+    })
+
+    this.getCount()
+    this.getSumPrice()
+  }
+
+  getCount(){
+    this._customerService.getCount().subscribe((data)=>{
+      this.coutCustomer = data;
+    },(error)=>{
+      console.log(error)
+    })
+  }
+
+  getSumPrice(){
+    this._customerService.getSumPrice().subscribe((data)=>{
+      this.sumPrice = data;
     },(error)=>{
       console.log(error)
     })
