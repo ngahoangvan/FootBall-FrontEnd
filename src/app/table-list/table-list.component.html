@@ -9,11 +9,17 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-        <div class="card">
+        <div class="card" *ngFor = "let stadium of stadium">
 
+<<<<<<< 7d2294440eebcfaa52301bd1cb93daa2a6be3268
           <div class="card-header bg-secondary mb-3" *ngFor = "let stadium_name of stadium_name">
             <h4 class="card-title text-white">{{stadium_name.name}}</h4>
             <p class="card-categorys">{{stadium_name.address}}</p>
+=======
+          <div class="card-header bg-secondary mb-3" >
+            <h4 class="card-title text-white">{{stadium.name}}</h4>
+            <p class="card-category">{{stadium.address}}</p>
+>>>>>>> Update 1/6/2018 Part 2
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -26,12 +32,12 @@
                   <th>End</th>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let customerinprogress of customerinprogress">
-                    <td>{{customerinprogress.id}}</td>
-                    <td>{{customerinprogress.name}}</td>
-                    <td>{{customerinprogress.phonenumber}}</td>
-                    <td>{{customerinprogress.starttime}}</td>
-                    <td class="text-primary">{{customerinprogress.endtime}}</td>
+                  <tr *ngFor="let customer of stadium.customers">
+                    <td>{{customer.idCustomer}}</td>
+                    <td>{{customer.name}}</td>
+                    <td>{{customer.phoneNumber}}</td>
+                    <td>{{customer.timeStart}}</td>
+                    <td class="text-primary">{{customer.timeEnd}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -39,6 +45,7 @@
           </div>
         </div>
       </div>
+<<<<<<< 7d2294440eebcfaa52301bd1cb93daa2a6be3268
       <div class="col-md-12">
         <div class="card card-plain">
           <div class="card-header bg-secondary mb-3">
@@ -175,6 +182,8 @@
           </div>
         </div>
       </div>
+=======
+>>>>>>> Update 1/6/2018 Part 2
     </div>
   </div>
 </div>

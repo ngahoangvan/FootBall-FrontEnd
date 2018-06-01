@@ -8,8 +8,6 @@ import {MatDialog, MAT_DIALOG_DATA} from '@angular/material';
 
 import { ROUTECUSTOMER } from '../table-list/assets'
 
-import { ROUTESTADIUM } from '../table-list/stadium-name-data'
-
 import {FoodService} from '../dashboard/food_service/food.service'
 import {DrinkService} from '../dashboard/drink_service/drink.service'
 import {CustomerService} from '../dashboard/customer-service/customer.service'
@@ -45,6 +43,10 @@ export class DashboardComponent implements OnInit {
      this.food = FOOD.filter(food => food);
      this.customer = ROUTECUSTOMER.filter(customer => customer);
      $.getScript('../../../assets/js/modal.js'); 
+  }
+
+  updateDrink(drink){
+    this._drinkService.setterDrink(drink);
   }
 
 

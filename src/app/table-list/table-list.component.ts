@@ -13,8 +13,8 @@ import {StadiumService} from './stadium-service/stadium-service.service'
 
 import { ROUTEINPROGRESS } from './inprogress'
 
-import { ROUTESTADIUM } from './stadium-name-data'
-
+import {Stadium} from './assets/stadium-name-data'
+import {Customers } from './assets/customers';
 
 @Component({
   selector: 'app-table-list',
@@ -30,9 +30,9 @@ export class TableListComponent implements OnInit {
   date = new FormControl(new Date());
   serializedDate = new FormControl((new Date()).toISOString());
 
-  customer: any[];
+  customer: Customers[];
   customerinprogress: any[];
-  stadium_name: any[];
+  stadium: any[];
 
   constructor(private _stadiumService:StadiumService) { }
 
@@ -44,9 +44,9 @@ export class TableListComponent implements OnInit {
     //  this.customerinprogress = ROUTEINPROGRESS.filter(customerinprogress => customerinprogress)
     //  this.stadium_name = ROUTESTADIUM.filter(stadium_name => stadium_name)
 
-    this._stadiumService.getStadium().subscribe((stadium)=>{
-      console.log(stadium);
-      this.stadium_name = stadium;
+    this._stadiumService.getStadium().subscribe((data)=>{
+      this.stadium=data;
+      console.log(data);
     },(error)=>{
       console.log(error)
     })
@@ -54,11 +54,4 @@ export class TableListComponent implements OnInit {
 
   }
 
-}
-
-export interface Element {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
 }

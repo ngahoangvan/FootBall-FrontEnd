@@ -13,6 +13,7 @@ export class DrinkService {
   private baseUrl:string = "http://localhost:8080/api/drink";
   private headers = new Headers({'Content-Type': 'application/json'});
   private options = new RequestOptions({headers:this.headers});
+  private drink:any;
 
   constructor(private _http:Http) { }
 
@@ -22,8 +23,22 @@ export class DrinkService {
     .catch(this.errorHandler);
   }
 
+  getOneDrink(idDrink:Number){
+
+    return this._http.get(this.baseUrl + '/'+ idDrink , this.options).map((response:Response)=>response.json())
+    .catch(this.errorHandler);
+  }
+
   deleteDrink(idDrink:Number){
     return this._http.delete(this.baseUrl + '/delete/'+idDrink,this.options).map(this.extractData).catch(this.errorHandler);
+  }
+
+  UpdateDrink(drink:any){
+    return this._http.put(this.baseUrl + '/update',JSON.stringify(drink)).map(this.extractData).catch(this.errorHandler);
+  }
+
+  CreateDrink(drink:any){
+    return this._http.post(this.baseUrl + '/new',JSON.stringify(drink)).map(this.extractData).catch(this.errorHandler);
   }
 
   
@@ -33,6 +48,14 @@ export class DrinkService {
   errorHandler(error:Response){
     
     return Observable.throw(error||"SERVER ERROR")
+  }
+
+  setterDrink(drink:any){
+    this.drink = drink;
+  }
+
+  getterDrink(){
+    return this.drink;
   }
 
 }
