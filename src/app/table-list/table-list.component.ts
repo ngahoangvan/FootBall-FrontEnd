@@ -40,6 +40,9 @@ export class TableListComponent implements OnInit {
 
   ngOnInit() {
 
+    console.log(this.date);
+    
+
     //  this.customer = ROUTECUSTOMER.filter(customer => customer);
     //  this.customerinprogress = ROUTEINPROGRESS.filter(customerinprogress => customerinprogress)
     //  this.stadium_name = ROUTESTADIUM.filter(stadium_name => stadium_name)
@@ -52,6 +55,11 @@ export class TableListComponent implements OnInit {
     })
 
 
+  }
+
+  onChange(){
+    console.log("change");
+    
   }
 
 }

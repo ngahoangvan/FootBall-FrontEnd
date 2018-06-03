@@ -40,7 +40,7 @@ export class DrinkService {
   }
 
   updateDrink(drink:any){
-    return this._http.put(this.baseUrl + '/update',JSON.stringify(drink)).map(this.extractData).catch(this.errorHandler);
+    return this._http.put(this.baseUrl + '/update',drink,this.options).map(this.extractData).catch(this.errorHandler);
   }
 
   createDrink(drink:any){

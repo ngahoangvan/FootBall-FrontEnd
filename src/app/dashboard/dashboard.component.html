@@ -9,7 +9,7 @@
             </div>
             <p class="card-category">This Month</p>
             <h3 class="card-title">89
-            <small>%</small>
+              <small>%</small>
             </h3>
           </div>
           <div class="card-footer">
@@ -69,7 +69,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="row">
       <div class="col-lg-6 col-md-12">
         <div class="card">
@@ -110,18 +110,20 @@
                     <th>Price (vnd)</th>
                   </thead>
                   <tbody>
-                    <tr *ngFor = "let water of water">
+                    <tr *ngFor="let water of water">
                       <td>{{water.idDrink}}</td>
                       <td>{{water.name}}</td>
                       <td>{{water.price}}</td>
                       <td>
-                        <button mat-raised-button type="button" (click)="updateDrink(water)" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
-                        <i class="material-icons">edit</i>
+                        <button mat-raised-button type="button" (click)="updateDrink(water.idDrink)" matTooltip="Edit Task" [matTooltipPosition]="'above'"
+                          class="btn btn-primary btn-link btn-sm btn-just-icon" data-toggle="modal" data-target="#exampleModalDrink"
+                          data-whatever="@mdo">
+                          <i class="material-icons">edit</i>
                         </button>
                       </td>
                       <td>
                         <button mat-raised-button type="button" (click)="deleteDrink(water)" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
-                        <i class="material-icons">close</i>
+                          <i class="material-icons">close</i>
                         </button>
                       </td>
                     </tr>
@@ -131,159 +133,166 @@
                   <button mat-raised-button class="btn btn-danger btn-block" (click)="showNotification('bottom','center')">View More</button>
                 </div>
               </div>
-              
+
               <div class="tab-pane" id="messages">
-                  <table class="table table-hover">
-                    <thead class="text-warning">
-                      <th>ID</th>
-                      <th>Name</th>
-                      <th>Price (vnd)</th>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor = "let food of food">
-                        <td>{{food.idFood}}</td>
-                        <td>{{food.name}}</td>
-                        <td>{{food.price}}</td>
-                        <td>
-                          <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon" data-toggle="modal" data-target="#exampleModal"  >
+                <table class="table table-hover">
+                  <thead class="text-warning">
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price (vnd)</th>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let food of food">
+                      <td>{{food.idFood}}</td>
+                      <td>{{food.name}}</td>
+                      <td>{{food.price}}</td>
+                      <td>
+                        <button mat-raised-button type="button" (click)="updateFood(food.idFood)" matTooltip="Edit Task" [matTooltipPosition]="'above'"
+                          class="btn btn-primary btn-link btn-sm btn-just-icon" data-toggle="modal" data-target="#exampleModalFood">
                           <i class="material-icons">edit</i>
-                          </button>
-                        </td>
-                        <td>
-                          <button mat-raised-button type="button" (click)="deleteFood(food)" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                        </button>
+                      </td>
+                      <td>
+                        <button mat-raised-button type="button" (click)="deleteFood(food)" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
                           <i class="material-icons">close</i>
-                          </button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <div class="col-md-4">
-                    <button mat-raised-button class="btn btn-danger btn-block" (click)="showNotification('bottom','center')">View More</button>
-                  </div>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="col-md-4">
+                  <button mat-raised-button class="btn btn-danger btn-block" (click)="showNotification('bottom','center')">View More</button>
                 </div>
-                <div class="tab-pane" id="settings">
-                  <table class="table">
-                    <tbody>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                         <td>
-                        <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
-                        <i class="material-icons">edit</i>
+              </div>
+              <div class="tab-pane" id="settings">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <span class="form-check-sign">
+                              <span class="check"></span>
+                            </span>
+                          </label>
+                        </div>
+                      </td>
+                      <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                      <td>
+                        <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon"
+                          data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                          <i class="material-icons">edit</i>
                         </button>
                       </td>
                       <td>
                         <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
-                        <i class="material-icons">close</i>
+                          <i class="material-icons">close</i>
                         </button>
                       </td>
-                      </tr>
-                      <tr>
-                        
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+                    </tr>
+                    <tr>
+
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-6 col-md-12">
-          <div class="card">
-            <div class="card-header card-header-info">
-              <h4 class="card-title">Customer paid status</h4>
-              <p class="card-category">10 days ago</p>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="card">
+          <div class="card-header card-header-info">
+            <h4 class="card-title">Customer paid status</h4>
+            <p class="card-category">10 days ago</p>
+          </div>
+          <div class="card-body table-responsive">
+            <table class="table table-hover">
+              <thead class="text-warning">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price (vnd)</th>
+                <th>Phone Number</th>
+                <th>Date</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let customers of customer">
+                  <td>{{customers.idCustomerPaid}}</td>
+                  <td>{{customers.name}}</td>
+                  <td>{{customers.cost}}</td>
+                  <td>{{customers.phoneNumber}}</td>
+                  <td>{{customers.someThing}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="exampleModalDrink" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-            <div class="card-body table-responsive">
-              <table class="table table-hover">
-                <thead class="text-warning">
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Price (vnd)</th>
-                  <th>Phone Number</th>
-                  <th>Date</th>
-                </thead>
-                <tbody>
-                  <tr *ngFor = "let customers of customer">
-                    <td>{{customers.idCustomerPaid}}</td>
-                    <td>{{customers.name}}</td>
-                    <td>{{customers.cost}}</td>
-                    <td>{{customers.phoneNumber}}</td>
-                    <td>{{customers.someThing}}</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="modal-body">
+              <form #fDrink="ngForm" (ngSubmit)="putDrink(fDrink)">
+                <div class="form-group">
+                  <input type="text" hidden value="{{drink?.idDrink}}" name="idDrink" ngModel="{{drink?.idDrink}}">
+                  <label for="recipient-name" class="form-control-label">Recipient:</label>
+                  <input type="text" class="form-control" id="recipient-name" value="{{drink?.name}}" name="name"  ngModel="{{drink?.name}}">
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="form-control-label">Message:</label>
+                  <textarea class="form-control" id="message-text" value="{{drink?.price}}" name="price"  ngModel="{{drink?.price}}"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" (click)="putDrink(fDrink);ngOnInit();" data-dismiss="modal">Send message</button>
             </div>
           </div>
         </div>
+      </div>
 
-<!-- 
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button> -->
 
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+
+      <div class="modal fade" id="exampleModalFood" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form #fFood="ngForm" (ngSubmit)="putFood(fFood)">
+                <div class="form-group">
+                    <input type="text" hidden value="{{foods?.idFood}}" name="idFood" ngModel="{{foods?.idFood}}">
+                  <label for="recipient-name" class="form-control-label">Recipient:</label>
+                  <input type="text" class="form-control" id="recipient-name" value="{{foods?.name}}" name="name"  ngModel="{{foods?.name}}">
                 </div>
-                <div class="modal-body">
-                  <form>
-                    <div class="form-group">
-                      <label for="recipient-name" class="form-control-label">Recipient:</label>
-                      <input type="text" class="form-control" id="recipient-name">
-                    </div>
-                    <div class="form-group">
-                      <label for="message-text" class="form-control-label">Message:</label>
-                      <textarea class="form-control" id="message-text"></textarea>
-                    </div>
-                  </form>
+                <div class="form-group">
+                  <label for="message-text" class="form-control-label">Message:</label>
+                  <textarea class="form-control" id="message-text" value="{{foods?.price}}" name="price"  ngModel="{{foods?.price}}"></textarea>
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Send message</button>
-                </div>
-              </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" (click)="putFood(fFood);ngOnInit();" data-dismiss="modal">Send message</button>
             </div>
           </div>
-
-
-
-
-<!--           <a href="#my_modal" data-toggle="modal" data-book-id="my_id_value">Open Modal</a>
-
-<div class="modal" id="my_modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <h4 class="modal-title">Modal header</h4>
+        </div>
       </div>
-      <div class="modal-body">
-        <p>some content</p>
-        <input type="text" name="bookId" value=""/>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
+
+
     </div>
   </div>
 </div>
- -->
-
-
-      </div>
-    </div>
-  </div>
-

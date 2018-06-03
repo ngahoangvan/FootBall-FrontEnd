@@ -20,6 +20,8 @@ import {MatPaginator, MatTableDataSource} from '@angular/material';
 declare var $:any;
 
 import * as Chartist from 'chartist';
+import { Food } from './assets/food';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
@@ -42,6 +44,9 @@ export class DashboardComponent implements OnInit {
   coutCustomer:String;
   sumPrice:String;
 
+  drink:Drink;
+  foods:Food;
+
   constructor(public dialog: MatDialog,private _foodService:FoodService, private _drinkService:DrinkService,
     private _customerService:CustomerService) {}
   
@@ -51,21 +56,18 @@ export class DashboardComponent implements OnInit {
     //  this.customer = ROUTECUSTOMER.filter(customer => customer);
      $.getScript('../../../assets/js/modal.js'); 
      this._foodService.getFood().subscribe((food)=>{
-       console.log(food);
        this.food = food;
      },(error)=>{
        console.log(error)
      })
 
     this._drinkService.getDrink().subscribe((water)=>{
-      console.log(water);
       this.water = water;
     },(error)=>{
       console.log(error)
     })
 
     this._customerService.getCustomerPaid().subscribe((customer)=>{
-      console.log(customer);
       this.customer = customer;
     },(error)=>{
       console.log(error)
@@ -82,7 +84,6 @@ export class DashboardComponent implements OnInit {
       console.log(error)
     })
   }
-
   getSumPrice(){
     this._customerService.getSumPrice().subscribe((data)=>{
       this.sumPrice = data;
@@ -98,9 +99,20 @@ export class DashboardComponent implements OnInit {
       console.log(error)
     })
   }
-
   updateDrink(drink){
-    this._drinkService.setterDrink(drink);
+    this._drinkService.getOneDrink(drink).subscribe((data)=>{
+      this.drink = data;
+    },(error)=>{
+      console.log(error)
+    })
+  }
+  putDrink(drink:NgForm){
+    console.log(drink);
+    this._drinkService.updateDrink(drink.value).subscribe((data)=>{
+      this.drink = data;
+    },(error)=>{
+      console.log(error)
+    })
   }
 
   deleteFood(food){
@@ -110,9 +122,19 @@ export class DashboardComponent implements OnInit {
       console.log(error)
     })
   }
-
   updateFood(food){
-    // 
+    this._foodService.getOneFood(food).subscribe((data)=>{
+      this.foods = data;
+    },(error)=>{
+      console.log(error)
+    })
+  }
+  putFood(food:NgForm){
+    this._foodService.updateFood(food.value).subscribe((data)=>{
+      this.foods = data;
+    },(error)=>{
+      console.log(error)
+    })
   }
 
 

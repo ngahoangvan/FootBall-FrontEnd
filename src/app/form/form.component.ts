@@ -5,6 +5,7 @@ import { Drink } from '../dashboard/assets/drink';
 import { Food } from '../dashboard/assets/food';
 
 import {Router} from "@angular/router"
+import { StadiumService } from '../table-list/stadium-service/stadium-service.service';
 
 declare var $:any;
 
@@ -22,10 +23,14 @@ export class FormComponent implements OnInit {
   water:Drink = new Drink();
   food:Food = new Food();
 
-  constructor(private _router:Router,private _foodService:FoodService, private _drinkService:DrinkService) { }
+  stadium:any
+
+  constructor(private _router:Router,private _foodService:FoodService, private _drinkService:DrinkService,
+              private _stadiumService:StadiumService) { }
 
   ngOnInit() {
     this.getCount()
+    this.getStadium()
   }
 
   getCount(){
@@ -41,13 +46,19 @@ export class FormComponent implements OnInit {
       console.log(error)
     })
   }
+  getStadium(){
+    this._stadiumService.getStadium().subscribe((data)=>{
+      this.stadium = data;
+      console.log(data);
+    },(error)=>{
+      console.log(error)
+    })
+  }
 
   newDrink(){
     let drink = new  Drink();
     this._drinkService.setterDrink(drink);
-
   }
-
   addDrinkForm(){
     if(this.water.idDrink == undefined){
       this._drinkService.createDrink(this.water).subscribe((data) =>{
@@ -62,10 +73,7 @@ export class FormComponent implements OnInit {
 
   newFood(){
     let food = new  Food();
-    // this._drinkService.setterDrink(drink);
-
   }
-
   addFoodForm(){
     if(this.food.idFood == undefined){
       this._foodService.createFood(this.food).subscribe((data) =>{
@@ -75,9 +83,12 @@ export class FormComponent implements OnInit {
         console.log(error);
       })
     }
-   
   }
 
+
+  
+
+  
 
 
 }

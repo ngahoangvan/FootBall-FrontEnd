@@ -73,6 +73,7 @@ import {
   AgmCoreModule
 } from '@agm/core';
 import { FormComponent } from './form/form.component';
+import { OrderService } from './form/order-service/order-service.service';
 
 @NgModule({
   imports: [
@@ -123,7 +124,7 @@ import { FormComponent } from './form/form.component';
     DialogDataExampleDialog
 
   ],
-  providers: [FoodService, DrinkService, CustomerService,StadiumService],
+  providers: [FoodService, DrinkService, CustomerService,StadiumService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

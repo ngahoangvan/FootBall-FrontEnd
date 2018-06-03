@@ -38,7 +38,7 @@ export class FoodService {
   }
 
   updateFood(food:any){
-    return this._http.put(this.baseUrl + '/update',JSON.stringify(food)).map(this.extractData).catch(this.errorHandler);
+    return this._http.put(this.baseUrl + '/update',food,this.options).map(this.extractData).catch(this.errorHandler);
   }
 
   createFood(food:any){
