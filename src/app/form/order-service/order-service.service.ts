@@ -22,8 +22,13 @@ export class OrderService {
     .catch(this.errorHandler);
   }
 
-  createDrink(order:any){
+  creatOrder(order:any){
     return this._http.post(this.baseUrl+'',JSON.stringify(order),this.options).map(this.extractData)
+    .catch(this.errorHandler);
+  }
+
+  createPutStadium(putOrder:any){
+    return this._http.post('http://localhost:8080/api/putOrder',JSON.stringify(putOrder),this.options).map(this.extractData)
     .catch(this.errorHandler);
   }
   

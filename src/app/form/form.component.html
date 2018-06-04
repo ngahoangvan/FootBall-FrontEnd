@@ -6,16 +6,16 @@
 			</div>
 		</div>
 		
-		<form >
+		<form (ngSubmit) = "createOrder()">
 			
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="inputCity">Customer Name</label>
-					<input type="text" class="form-control" id="#">
+					<input type="text" class="form-control" id="#" required [(ngModel)]="customer.name" name="name">
 				</div>
 				<div class="form-group col-md-6">
 					<label for="inputCity">Phone Number</label>
-					<input type="text" class="form-control" id="#">
+					<input type="text" class="form-control" id="#" required [(ngModel)]="customer.phoneNumber" name="phoneNumber">
 				</div>
 			</div>
 			
@@ -23,30 +23,34 @@
 				<div class="form-group col-md-6">
 					<label for="inputCity">Stadium</label>
 					<!-- <input type="text" class="form-control" id="inputCity"> -->
-					<select name="" id="" class="form-control">
+					<select id="" class="form-control" required [(ngModel)]="order.idStadium" name="idStadium">
 						<option *ngFor = "let stadium of stadium" value="{{stadium.idStadium}}">{{stadium.name}}</option>
 					</select>
 				</div>
 				<div class="form-group col-md-4">
 					<label for="inputState">Start Time</label>
-					<input type="text" class="form-control" id="inputCity">
+					<input type="text" class="form-control" id="inputCity" required [(ngModel)]="customer.timeStart" name="timeStart">
 				</div>
 				<div class="form-group col-md-2">
 					<label for="inputZip">End Time</label>
-					<input type="text" class="form-control" id="inputZip">
+					<input type="text" class="form-control" id="inputZip" required [(ngModel)]="customer.timeEnd" name="timeEnd">
 				</div>
 			</div>
 
 			<div class="form-row">
 				<div class="form-group col-md-6">
+					<label for="inputCity">Price</label>
+					<input type="number" class="form-control" id="inputCity" required [(ngModel)]="customer.cost" name="price">
+				</div>
+				<div class="form-group col-md-6">
 					<label for="inputCity">Date</label>
-					<input type="date" class="form-control" id="inputCity">
+					<input type="date" class="form-control" id="inputCity" required [(ngModel)]="customer.date" name="date">
 				</div>
 			</div>	
-			<button type="button" style="width: 30%" class="btn btn-primary btn-lg btn-block">Finished Order</button>
+			<button type="submit" (click) = "newOrder()" style="width: 30%" class="btn btn-primary btn-lg btn-block">Finished Order</button>
 		</form>
 
-		
+
 
 
 		<div class="space__">
@@ -66,7 +70,7 @@
 							<div class="card-icon">
 								<i class="material-icons">local_drink</i>
 							</div>
-							<p class="card-category">Waters Counter</p>
+							<p class="card-category">Drinks Counter</p>
 							<h3 class="card-title">{{countDrink}}
 							</h3>
 						</div>
@@ -76,7 +80,7 @@
 							<input type="text" class="form-control" id="#" placeholder="Name" required [(ngModel)]="water.name" name="name">
 						</div>
 						<div class="form-group col-md-6">
-							<input type="text" class="form-control" id="#" placeholder="Price" required [(ngModel)]="water.price" name="price" >
+							<input type="number" class="form-control" id="#" placeholder="Price" required [(ngModel)]="water.price" name="price" >
 						</div>
 					</div>
 					
@@ -105,7 +109,7 @@
 							<input type="text" class="form-control" id="#" placeholder="Name" required [(ngModel)]="food.name" name="name">
 						</div>
 						<div class="form-group col-md-6">
-							<input type="text" class="form-control" id="#" placeholder="Price" required [(ngModel)]="food.price" name="price">
+							<input type="number" class="form-control" id="#" placeholder="Price" required [(ngModel)]="food.price" name="price">
 						</div>
 					</div>
 					

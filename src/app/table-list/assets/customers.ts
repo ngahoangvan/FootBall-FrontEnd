@@ -6,4 +6,5 @@ export class Customers {
     timeStart:String;
     timeEnd:String;
     someThing:String;
+    date:String;
 }

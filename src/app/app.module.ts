@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import {DatePipe} from '@angular/common';
 
 import {DialogDataExampleDialog} from './dashboard/dashboard.component'
 
@@ -124,7 +125,7 @@ import { OrderService } from './form/order-service/order-service.service';
     DialogDataExampleDialog
 
   ],
-  providers: [FoodService, DrinkService, CustomerService,StadiumService, OrderService],
+  providers: [FoodService, DrinkService, CustomerService,StadiumService, OrderService,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

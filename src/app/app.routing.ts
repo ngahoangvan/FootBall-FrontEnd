@@ -16,7 +16,7 @@ const routes: Routes =[
     { path: 'state-stadium',     component: TableListComponent },
 
     { path: 'maps',           component: MapsComponent },
-    { path: 'notifications',  component: NotificationsComponent },
+    // { path: 'notifications',  component: NotificationsComponent },
     { path: 'form',  component: FormComponent },
 
     { path: '',               redirectTo: 'dashboard', pathMatch: 'full' },
